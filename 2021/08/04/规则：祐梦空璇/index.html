@@ -136,7 +136,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6.6k 字
+      7.1k 字
     </span>
   
 
@@ -146,7 +146,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      69
+      74
        分钟
     </span>
   
@@ -374,7 +374,7 @@ G --&gt; E
 </blockquote>
 <p><code>敏捷</code>：决定角色的攻击速度和闪避加成，在战斗中相对常用。</p>
 <blockquote>
-<p>计算方法：(PQ+FLEX)/3，结果四舍五入</p>
+<p>计算方法：(PQ+SEN)/3，结果四舍五入</p>
 </blockquote>
 <h2 id="0x41-技能系统"><a href="#0x41-技能系统" class="headerlink" title="0x41 技能系统"></a>0x41 技能系统</h2><p>技能分为探索技能、社交技能、生存技能及五个自定义职业技能，这部分仅包含可供数值检定的技能，rp方向的技能不在此范围内。</p>
 <p>所有技能分类统一技能点，请根据跑团目的规划自己的技能</p>
@@ -497,14 +497,19 @@ G --&gt; E
 <blockquote>
 <p>突出领域识别方法为大于领域分配平均数的百分之二十</p>
 </blockquote>
-<p>玩家可使用随机分配系统分配从属领域：将85点随机分配到六个领域，超出平均线百分之二十的数值的领域为突出领域。<br>魔法效果由从属领域和魔法等级、领域等级决定。<br>魔法等级计算方法为：魔法点 <em>{4-32}一级</em> 、 <em>{33-61}二级</em> 、 <em>{62-90}三级</em> 、 <em>{91-120}四级</em><br>领域等级为领域分配平均数（四舍五入），大于为三级，大于百分之七十五小于平均数为二级，小于百分之七十五为一级。  </p>
+<p>玩家可使用随机分配系统分配从属领域：将85点随机分配到六个领域，超出平均线百分之二十的数值的领域为突出领域。<br>魔法效果由从属领域和魔法等级、领域等级决定。<br>魔法等级计算方法为：魔法点 <em>{4-32}一级</em> 、 <em>{33-61}二级</em> 、 <em>{62-90}三级</em> 、 <em>{91-120}四级</em>  </p>
+<hr>
+<p>领域等级为领域分配平均数（四舍五入），大于为三级，大于百分之七十五小于平均数为二级，小于百分之七十五为一级。  </p>
+<hr>
 <blockquote>
 <p>魔法的领域等级计算为四舍五入的涉及各领域等级的平均数</p>
 </blockquote>
 <h3 id="0x42-2-创造魔法"><a href="#0x42-2-创造魔法" class="headerlink" title="0x42.2 创造魔法"></a>0x42.2 创造魔法</h3><p>创造魔法时，根据魔法等级，玩家可拥有<code>1+2</code>、<code>2+2</code>、<code>2+3</code>、<code>3+2</code>的魔法设定槽，玩家可根据给定的领域等级和领域范围创造魔法并提交审核。</p>
 <p>其中，在加号前方的魔法槽为重点魔法槽，只能根据从属领域创造魔法，加号后方为通用魔法，创造魔法时不得使用从属领域内的魔法领域。</p>
-<h3 id="0x42-3-威力和消耗"><a href="#0x42-3-威力和消耗" class="headerlink" title="0x42.3 威力和消耗"></a>0x42.3 威力和消耗</h3><p>当魔法等级为1级时，魔法领域等级换算威力为{5，10，15}；<br>魔法等级为2时，{15，20，25}；<br>魔法等级为3时，{25，30，35}；<br>魔法等级为4时，{35，40，45}，防御同等。</p>
+<h3 id="0x42-3-威力和消耗"><a href="#0x42-3-威力和消耗" class="headerlink" title="0x42.3 威力和消耗"></a>0x42.3 威力和消耗</h3><hr>
+<p>当魔法等级为1级时，魔法领域等级换算威力为{5，10，15}；<br>魔法等级为2时，{15，20，25}；<br>魔法等级为3时，{25，30，35}；<br>魔法等级为4时，{35，40，45}，防御同等。</p>
 <p>当魔法等级为1级时，魔法领域等级换算消耗为{3,5,7}；<br>魔法等级为2时，{7,9,11}，<br>魔法等级为3时，{11,13,15}，<br>魔法等级为4时，{15,17,19}，</p>
+<hr>
 <h3 id="0x42-4-自然恢复"><a href="#0x42-4-自然恢复" class="headerlink" title="0x42.4 自然恢复"></a>0x42.4 自然恢复</h3><p>每次使用魔法后，会扣除相应的魔力值，魔力值的恢复为每一小轮战斗轮恢复十点，每一大轮战斗轮结束后回满。</p>
 <h2 id="0x43-武装系统"><a href="#0x43-武装系统" class="headerlink" title="0x43 武装系统"></a>0x43 武装系统</h2><p>武装系统全部采用泛用式数据。但支持模组自定义特种武器</p>
 <table>
@@ -512,105 +517,108 @@ G --&gt; E
 <tr>
 <th align="center">武器类型</th>
 <th align="center">伤害</th>
-<th align="center">命中</th>
+<th align="center">命中类型</th>
+<th align="center">最大攻击距离</th>
 <th align="center">负重</th>
 </tr>
 </thead>
 <tbody><tr>
 <td align="center">徒手(不计入装备)</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">2</td>
+<td align="center">近战</td>
+<td align="center">0</td>
 <td align="center">0</td>
 </tr>
 <tr>
 <td align="center">短剑</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">4</td>
+<td align="center">近战</td>
+<td align="center">0</td>
 <td align="center">4</td>
 </tr>
 <tr>
 <td align="center">短刀</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">4</td>
+<td align="center">近战</td>
+<td align="center">0</td>
 <td align="center">2</td>
 </tr>
 <tr>
 <td align="center">单手剑</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">6</td>
+<td align="center">近战</td>
+<td align="center">1</td>
 <td align="center">5</td>
 </tr>
 <tr>
 <td align="center">一手半剑</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">8</td>
+<td align="center">近战</td>
+<td align="center">1</td>
 <td align="center">6</td>
 </tr>
 <tr>
 <td align="center">双手剑</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">10</td>
+<td align="center">近战</td>
+<td align="center">1</td>
 <td align="center">10</td>
 </tr>
 <tr>
 <td align="center">法杖</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">4</td>
+<td align="center">近战/远程</td>
+<td align="center">2</td>
 <td align="center">5</td>
 </tr>
 <tr>
 <td align="center">弓</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">6</td>
+<td align="center">远程</td>
+<td align="center">10</td>
 <td align="center">5</td>
 </tr>
 <tr>
 <td align="center">长枪</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">8</td>
+<td align="center">近战</td>
+<td align="center">2</td>
 <td align="center">6</td>
 </tr>
 <tr>
 <td align="center">投掷道具</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">4</td>
+<td align="center">远程</td>
+<td align="center">6</td>
 <td align="center">2</td>
 </tr>
 <tr>
 <td align="center">手枪</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">3</td>
+<td align="center">远程</td>
+<td align="center">6</td>
 <td align="center">3</td>
 </tr>
 <tr>
 <td align="center">单动式步枪</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">8</td>
+<td align="center">远程</td>
+<td align="center">10</td>
 <td align="center">5</td>
 </tr>
 <tr>
 <td align="center">自动式步枪</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">3*3</td>
+<td align="center">远程</td>
+<td align="center">8</td>
 <td align="center">4</td>
 </tr>
 <tr>
 <td align="center">霰弹枪</td>
-<td align="center"></td>
-<td align="center"></td>
+<td align="center">10</td>
+<td align="center">远程</td>
 <td align="center">4</td>
-</tr>
-<tr>
-<td align="center">冲锋枪</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">3</td>
-</tr>
-<tr>
-<td align="center">轻机枪</td>
-<td align="center"></td>
-<td align="center"></td>
-<td align="center">6</td>
+<td align="center">4</td>
 </tr>
 </tbody></table>
 <table>
@@ -623,12 +631,12 @@ G --&gt; E
 </thead>
 <tbody><tr>
 <td align="center">轻型防弹衣</td>
-<td align="center"></td>
+<td align="center">6</td>
 <td align="center">7</td>
 </tr>
 <tr>
 <td align="center">重型防弹衣</td>
-<td align="center"></td>
+<td align="center">10</td>
 <td align="center">12</td>
 </tr>
 </tbody></table>
@@ -637,7 +645,22 @@ G --&gt; E
 <blockquote>
 <p>建卡成功率：由基础属性计算得到。6+(PQ+IQ+VOL)/9=[6,16]<br>角色成长后若相关属性增加，建卡成功率也会同步增长。</p>
 </blockquote>
-<h3 id="0x44-2-特殊检定方法"><a href="#0x44-2-特殊检定方法" class="headerlink" title="0x44.2 特殊检定方法"></a>0x44.2 特殊检定方法</h3><p>除房规外，gm可根据大于建卡成功率的150%和大于建卡成功率的175%设定成功奖励或信息梯度；根据小于建卡成功率50%和小于建卡成功率25%设定失败惩罚和失败信息梯度。</p>
+<h3 id="0x44-2-战斗检定"><a href="#0x44-2-战斗检定" class="headerlink" title="0x44.2 战斗检定"></a>0x44.2 战斗检定</h3><p>战斗检定包含<code>先攻排序</code>，<code>命中检定</code>，<code>伤害检定</code>，<code>防御检定</code>四部分。</p>
+<p><code>先攻排序</code>：根据人物的敏捷决定人物的先攻顺序，公式为：<em>3d6+敏捷值</em> ，总和越大，攻击优先程度越高。</p>
+<p><code>命中检定</code>：命中检定分近战攻击命中检定和远程攻击命中检定，但都为对抗检定。</p>
+<p>近战攻击，攻击方公式为：<em>3d6+体质</em> ，被攻击方公式为：<em>3d6+体型</em> ，数值大者胜，攻击方胜则命中；</p>
+<p>远程攻击，攻击方公式为：<em>3d6+体质</em> ，被攻击方公式为：<em>3d6+敏捷</em> ，数值大者胜，攻击方胜则命中。</p>
+<blockquote>
+<p>若魔法攻击，命中检定为远程魔法同远程攻击，近战/附魔型同近战攻击，若为群体攻击类型的魔法，则范围内无需检定。</p>
+</blockquote>
+<p><code>伤害检定</code>：攻击方命中检定通过后，即进行伤害检定。伤害检定为攻击方本轮总攻击伤害-被攻击方总防御值=扣除生命值。</p>
+<blockquote>
+<p>总攻击伤害=物理伤害+魔法伤害<br>总防御值=基础防御+物理防御+魔法防御<br>ps：魔法伤害只能由魔法防御抵消  </p>
+</blockquote>
+<p><code>防御检定</code>：防御检定包含 <em>物理防御</em> 和 <em>魔法防御</em> 两部分。  </p>
+<p>物理防御，公式为所有带防御属性物品的防御值总和。</p>
+<p>魔法防御，公式为 <em>魔适÷3</em> </p>
+<h3 id="0x44-3-特殊检定方法"><a href="#0x44-3-特殊检定方法" class="headerlink" title="0x44.3 特殊检定方法"></a>0x44.3 特殊检定方法</h3><p>除房规外，gm可根据大于建卡成功率的150%和大于建卡成功率的175%设定成功奖励或信息梯度；根据小于建卡成功率50%和小于建卡成功率25%设定失败惩罚和失败信息梯度。</p>
 <h2 id="0x45-战斗系统"><a href="#0x45-战斗系统" class="headerlink" title="0x45 战斗系统"></a>0x45 战斗系统</h2><p>战斗系统共有三种地图构建方式，分别命名为X，XY，XYZ，接下来将分别介绍这三种地图构建方式的不同战斗系统，gm可以自由选用，但是一次团组只能使用一个战斗系统</p>
 <h3 id="0x45-0-XMode战斗系统"><a href="#0x45-0-XMode战斗系统" class="headerlink" title="0x45.0 XMode战斗系统"></a>0x45.0 XMode战斗系统</h3><p>正如名字，X战斗系统整个地图只有一个轴，X轴，战斗双方在左右依次列队，根据先攻顺序发动进攻。X战斗系统仅支持双方对战，若有第三方加入需选边站队或等待第一轮战斗结果。双方队伍最前方队员之间的距离为5格，每个队员各占一格距离。</p>
 <h3 id="0x45-1-XYMode战斗系统"><a href="#0x45-1-XYMode战斗系统" class="headerlink" title="0x45.1 XYMode战斗系统"></a>0x45.1 XYMode战斗系统</h3><p>XY战斗系统的地图为以左下角为原点的网格状地图，战斗双方在格子内布局，gm需使用障碍物规划战斗地图</p>
